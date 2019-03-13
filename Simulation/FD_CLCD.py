@@ -11,7 +11,7 @@ g0 = 9.80665                                    #m/s^2
 Lambda = -0.0065                                #K/m
 R = 287.                                        #JK^-1kg^-1
             
-W0 = 15053*0.45359237*g0                        #kg
+W0 = 15053*0.45359237*g0                        #N
 S = 30.0                                        #m^2
 c = 2.0569                                      #m
 b = 15.911                                      #m
@@ -28,15 +28,15 @@ TAT = np.array(TAT)+273.15                      #K
 IAS = [250, 219, 190, 160, 132, 114]            #kts
 IAS = np.array(IAS)*0.514444444                 #m/s
 alpha = [1.4, 2.1, 3.3, 5.2, 7.7, 11.1]         #deg
-alpha_rad = np.array(alpha) * (math.pi/180.)    #rad
+alpha_rad = np.array(alpha) * (pi/180.)    #rad
 FFl = [732, 605, 506, 421, 410, 397]            #lbs/hr
 FFl = np.array(FFl)*0.45359237                  #kg/hr
 FFr = [777, 650, 546, 473, 444, 430]            #lbs/hr
 FFr = np.array(FFr)*0.45359237                  #kg/hr
 F_used = [405, 440, 469, 500, 530, 555]         #lbs
-F_used = np.array(F_used)*0.45359237            #kg
+F_used = np.array(F_used)*0.45359237*g0         #N
 pitch = [0.95, 1.7, 2.7, 4.7, 6.8, 10.2]        #deg
-pitch_rad = np.array(pitch) * (math.pi/180.)    #rad
+pitch_rad = np.array(pitch) * (pi/180.)    #rad
 
 # List of Parameters From Flight Test
 W_data = []
@@ -66,6 +66,8 @@ for i in range(len(F_used)):
     CL.append(W_data[i]/(0.5*rho[i]*V_tas[i]**2*S))
     dT.append(T[i]-T_ISA[i])
 
+CL_2 = np.array(CL)**2
+            
 with open("matlab.dat", "w") as output:
     for j in range(len(hp)):
         output.write(str(hp[j]))
