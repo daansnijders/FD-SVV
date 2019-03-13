@@ -1,13 +1,15 @@
 # Citation 550 - Linear simulation
 import math
 # xcg = 0.25 * c
-from FD_CLCD import W_data, hp, V_tas
+from FD_CLCD import W_data, hp, V_tas, alpha
+
+
 
 # Stationary flight condition
 
-hp0    =    9999.	   # pressure altitude in the stationary flight condition [m]
-V0     =      1.       # true airspeed in the stationary flight condition [m/sec]
-alpha0 =      1.     # angle of attack in the stationary flight condition [rad]
+hp0    =    hp	   # pressure altitude in the stationary flight condition [m]
+V0     =    V_tas       # true airspeed in the stationary flight condition [m/sec]
+alpha0 =    alpha     # angle of attack in the stationary flight condition [rad]
 th0    =      1.   # math.pitch angle in the stationary flight condition [rad]
 
 # Aircraft mass

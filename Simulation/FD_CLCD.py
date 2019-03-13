@@ -27,6 +27,7 @@ TAT = np.array(TAT)+T0                          #K
 IAS = [250, 219, 190, 160, 132, 114]            #kts
 IAS = np.array(IAS)*0.514444444                 #m/s
 alpha = [1.4, 2.1, 3.3, 5.2, 7.7, 11.1]         #deg
+alpha_rad = np.array(alpha) * (math.pi/180.)    #rad
 FFl = [732, 605, 506, 421, 410, 397]            #lbs/hr
 FFl = np.array(FFl)*0.45359237                  #kg/hr
 FFr = [777, 650, 546, 473, 444, 430]            #lbs/hr
