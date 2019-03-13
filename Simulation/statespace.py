@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import numpy as np
-from Cit_par_daan import *
+from Cit_par_updated import *
 #from FD_CLCD import *
 from scipy import signal
 
