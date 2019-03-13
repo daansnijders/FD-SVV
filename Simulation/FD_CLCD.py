@@ -11,14 +11,11 @@ g0 = 9.80665                                    #m/s^2
 Lambda = -0.0065                                #K/m
 R = 287.                                        #JK^-1kg^-1
             
-W0 = 15053*0.45359237*g0                        #N
+W0 = ((9165+2750)*0.45359237+695)*g0            #N
 S = 30.0                                        #m^2
 c = 2.0569                                      #m
 b = 15.911                                      #m
 A = b**2/S
-    
-Cd0 = 0.04                                      #-
-e = 0.8                                         #-
 
 # Flight Test Measurements Data
 hp = [8000,8000,8000,8000,8010,8000]            #ft
@@ -28,7 +25,7 @@ TAT = np.array(TAT)+273.15                      #K
 IAS = [250, 219, 190, 160, 132, 114]            #kts
 IAS = np.array(IAS)*0.514444444                 #m/s
 alpha = [1.4, 2.1, 3.3, 5.2, 7.7, 11.1]         #deg
-alpha_rad = np.array(alpha) * (pi/180.)    #rad
+alpha_rad = np.array(alpha) * (pi/180.)         #rad
 FFl = [732, 605, 506, 421, 410, 397]            #lbs/hr
 FFl = np.array(FFl)*0.45359237                  #kg/hr
 FFr = [777, 650, 546, 473, 444, 430]            #lbs/hr
@@ -36,7 +33,7 @@ FFr = np.array(FFr)*0.45359237                  #kg/hr
 F_used = [405, 440, 469, 500, 530, 555]         #lbs
 F_used = np.array(F_used)*0.45359237*g0         #N
 pitch = [0.95, 1.7, 2.7, 4.7, 6.8, 10.2]        #deg
-pitch_rad = np.array(pitch) * (pi/180.)    #rad
+pitch_rad = np.array(pitch) * (pi/180.)         #rad
 
 # List of Parameters From Flight Test
 W_data = []
@@ -93,5 +90,12 @@ for line in lines:
 for k in range(len(thrust)):
     CD.append(thrust[k]/(0.5*rho[k]*V_tas[k]**2*S))
 
-#----------------------------------------------------------------------------------------------------
+z_function = np.polyfit(CL_2, CD, 1)
+function = np.poly1d(z_function)
+
+# Updated Parameters
+e = 1./(function[1]*pi*A)
+CD0 = function[0]
+
+
 
