@@ -35,6 +35,8 @@ FFr = np.array(FFr)*0.45359237                  #kg/hr
 F_used = [405, 440, 469, 500, 530, 555]         #lbs
 F_used = np.array(F_used)*0.45359237            #kg
 p = p0*(1+(Lambda*hp[0]/T0))**(-g0/(Lambda*R))
+pitch = [0.95, 1.7, 2.7, 4.7, 6.8, 10.2]          #deg
+pitch_rad = np.array(pitch) * (math.pi/180.)    #rad
 
 # List of Parameters From Flight Test
 W_data = []
