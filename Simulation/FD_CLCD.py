@@ -62,7 +62,7 @@ for i in range(len(F_used)):
     T.append(TAT[i]/(1+((gamma-1)/2)*M[i]**2))
     a.append(sqrt(gamma*R*T_ISA[i]))
     V_tas.append(M[i]*a[i])
-    rho.append(p/(R*T_ISA[i]))
+    rho.append(p[i]/(R*T_ISA[i]))
     CL.append(W_data[i]/(0.5*rho[i]*V_tas[i]**2*S))
     dT.append(T[i]-T_ISA[i])
 
