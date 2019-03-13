@@ -1,28 +1,32 @@
 # Citation 550 - Linear simulation
 import math
 # xcg = 0.25 * c
+from FD_CLCD import W_data, h
 
 # Stationary flight condition
 
-hp0    =    1. 	      # pressure altitude in the stationary flight condition [m]
+hp0    =    9999.	   # pressure altitude in the stationary flight condition [m]
 V0     =      1.       # true airspeed in the stationary flight condition [m/sec]
 alpha0 =        1.     # angle of attack in the stationary flight condition [rad]
 th0    =          1.   # math.pitch angle in the stationary flight condition [rad]
 
 # Aircraft mass
-m      =   1.          # mass [kg]
+
+m      =             # mass [kg]
+
+
+
 
 # aerodynamic properties
-e      =     1.        # Oswald factor [ ]
-CD0    =       1.      # Zero lift drag coefficient [ ]
-CLa    =         1.    # Slope of CL-alpha curve [ ]
+e      =     0.8        # Oswald factor [ ]
+CD0    =     0.04      # Zero lift drag coefficient [ ]
+CLa    =     4.8       # Slope of CL-alpha curve [ RAD ! ]
 
 # Longitudinal stability
 Cma    =     1.        # longitudinal stabilty [ ]
 Cmde   =       1.      # elevator effectiveness [ ]
 
 # Aircraft geometry
-
 S      = 30.00	          # wing area [m^2]
 Sh     = 0.2 * S         # stabiliser area [m^2]
 Sh_S   = Sh / S	          # [ ]
