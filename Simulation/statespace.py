@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import numpy as np
 from Cit_par_appC import *
+import control
 import control.matlab as ml
 import matplotlib.pyplot as plt
 #from FD_CLCD import *
@@ -8,7 +9,7 @@ from scipy import signal
 
 """Symmetric equations of motion to state space form"""
 
-V_test = 82.
+V_test = 59.9
 
 #delta_e = 1.
 #
@@ -32,20 +33,28 @@ C2_sym = np.array([[CXu/V_test, CXa, CZ0, c/V_test*CXq], [CZu/V_test, CZa, -CX0,
 C3_sym = np.array([[CXde], [CZde], [0], [Cmde]])
 
 
-A_sym = -np.matmul(np.linalg.inv(C1_sym), C2_sym)
-B_sym = -np.matmul(np.linalg.inv(C1_sym), C3_sym)
+A_sym = -(np.matmul(np.linalg.inv(C1_sym), C2_sym))
+B_sym = -(np.matmul(np.linalg.inv(C1_sym), C3_sym))
 C_sym = np.array([[1,0,0,0], [0,1,0,0], [0,0,1,0], [0,0,0,1]])
 D_sym = np.array([[0],[0],[0],[0]])
 
-sys_sym = signal.StateSpace(A_sym, B_sym, C_sym, D_sym)
+#sys_sym = signal.StateSpace(A_sym, B_sym, C_sym, D_sym)
 sys_sym2 = ml.ss(A_sym, B_sym, C_sym, D_sym)
+eig = np.linalg.eig(A_sym)
 
-yout, T = ml.step(sys_sym2)
 
-plt.plot(yout, T)
+
+t = np.linspace(0., 150, 1500)
+u = np.zeros(len(t))
+u[:] = -0.005
+z,x,c = ml.lsim(sys_sym2, u, t)
+
+#yout, T = ml.impulse(sys_sym2)
+
+plt.plot(t, z[:,0])
 plt.show()
 
-print (sys_sym)
+#print (sys_sym)
 
 """#Asymmetric equations of motion in state space form"""
 
@@ -84,8 +93,7 @@ sys_asym = signal.StateSpace(A_asym, B_asym, C_asym, D_asym)
 sys_asym2 = ml.ss(A_asym, B_asym, C_asym, D_asym)
 
 
-print (sys_asym)
-
+#print (sys_asym)
 
 
 
