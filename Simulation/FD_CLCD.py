@@ -93,9 +93,14 @@ for k in range(len(thrust)):
 z_function = np.polyfit(CL_2, CD, 1)
 function = np.poly1d(z_function)
 
+z_function1 = np.polyfit(alpha, CL, 1)
+function1 = np.poly1d(z_function1)
+
 # Updated Parameters
 e = 1./(function[1]*pi*A)
 CD0 = function[0]
+CL_a = (function1[1]*(pi/180))
+
 
 
 
