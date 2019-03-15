@@ -99,7 +99,7 @@ function1 = np.poly1d(z_function1)
 # Updated Parameters
 e = 1./(function[1]*pi*A)
 CD0 = function[0]
-CL_a = (function1[1]*(pi/180))
+CLa = (function1[1]*(pi/180))
 
 
 
