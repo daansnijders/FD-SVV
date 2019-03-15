@@ -17,7 +17,7 @@ from FD_CLCD import *
 #plt.ylabel('CD [-]')
 #plt.show()
 
-'*** CL-CD Plot [approximate] ***'
+'*** CL-CD Plot [from data points] ***'
 #z = np.polyfit(CD, CL, 2)
 #p1 = np.poly1d(z)
 #plt.plot(CD, p1(CD),"b--")  
@@ -31,7 +31,7 @@ from FD_CLCD import *
 #plt.plot(CL_2, p1(CL_2))
 #plt.plot(CL_2, CD, 'x')
 
-'*** CL-CD plot [accurate] ***'
+'*** CL-CD plot [from equation] ***'
 CL_new = np.arange(-0.3, 1.4, 0.02)
 CD_new = []
 
