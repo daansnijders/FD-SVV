@@ -28,15 +28,18 @@ V = 59.9
 #x_bar_sym = np.array([[u], [alpha], [theta], [q]])
 #x_bardot_sym = np.array([[u_dot], [alpha_dot], [theta_dot], [q_dot]])
 
-C1_sym = np.array([[-2*muc*c/V/V, 0, 0, 0], [0, (CZadot-2*muc)*c/V, 0, 0], [0, 0, -c/V, 0], [0, Cmadot*c/V, 0, -2*muc*KY2*c**2/(V**2)]])
-C2_sym = np.array([[CXu/V, CXa, CZ0, c/V*CXq], [CZu/V, CZa, -CX0, c/V*(CZq+2*muc)], [0, 0, 0, c/V], [Cmu/V, Cma, 0, Cmq*c/V]])
+C1_sym = np.array([[-2*muc*c/V/V, 0, 0, 0], 
+                   [0, (CZadot-2*muc)*c/V, 0, 0], 
+                   [0, 0, -c/V, 0], 
+                   [0, Cmadot*c/V, 0, -2*muc*KY2*c*c/V/V]])
+C2_sym = np.array([[CXu/V, CXa, CZ0, (c/V)*CXq], [CZu/V, CZa, -CX0, c/V*(CZq+2*muc)], [0, 0, 0, c/V], [Cmu/V, Cma, 0, Cmq*c/V]])
 C3_sym = np.array([[CXde], [CZde], [0], [Cmde]])
 
 
-A_sym = -(np.matmul(np.linalg.inv(C1_sym), C2_sym))
-B_sym = -(np.matmul(np.linalg.inv(C1_sym), C3_sym))
-C_sym = np.array([[1,0,0,0], [0,1,0,0], [0,0,1,0], [0,0,0,1]])
-D_sym = np.array([[0],[0],[0],[0]])
+A_sym = -np.dot(np.linalg.inv(C1_sym), C2_sym)
+B_sym = -np.dot(np.linalg.inv(C1_sym), C3_sym)
+C_sym = np.array([[1.,0.,0.,0.], [0.,1.,0.,0.], [0.,0.,1.,0.], [0.,0.,0.,1.]])
+D_sym = np.array([[0.],[0.],[0.],[0.]])
 
 #sys_sym = signal.StateSpace(A_sym, B_sym, C_sym, D_sym)
 sys_sym2 = ml.ss(A_sym, B_sym, C_sym, D_sym)
@@ -44,14 +47,14 @@ eig = np.linalg.eig(A_sym)
 
 
 
-t = np.linspace(0., 150, 1500)
+t = np.linspace(0., 150, 150)
 u = np.zeros(len(t))
 u[:] = -0.005
 z,x,c = ml.lsim(sys_sym2, u, t)
 
 #yout, T = ml.impulse(sys_sym2)
 
-plt.plot(t, z[:,0])
+plt.plot(t, (z[:,3]))
 plt.show()
 
 #print (sys_sym)
