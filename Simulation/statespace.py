@@ -9,7 +9,7 @@ from scipy import signal
 
 """Symmetric equations of motion to state space form"""
 
-V_test = 59.9
+V = 59.9
 
 #delta_e = 1.
 #
@@ -28,8 +28,8 @@ V_test = 59.9
 #x_bar_sym = np.array([[u], [alpha], [theta], [q]])
 #x_bardot_sym = np.array([[u_dot], [alpha_dot], [theta_dot], [q_dot]])
 
-C1_sym = np.array([[-2*muc*c/V_test/V_test, 0, 0, 0], [0, (CZadot-2*muc)*c/V_test, 0, 0], [0, 0, -c/V_test, 0], [0, Cmadot*c/V_test, 0, -2*muc*KY2*c**2/(V_test**2)]])
-C2_sym = np.array([[CXu/V_test, CXa, CZ0, c/V_test*CXq], [CZu/V_test, CZa, -CX0, c/V_test*(CZq+2*muc)], [0, 0, 0, c/V_test], [Cmu/V_test, Cma, 0, Cmq*c/V_test]])
+C1_sym = np.array([[-2*muc*c/V/V, 0, 0, 0], [0, (CZadot-2*muc)*c/V, 0, 0], [0, 0, -c/V, 0], [0, Cmadot*c/V, 0, -2*muc*KY2*c**2/(V**2)]])
+C2_sym = np.array([[CXu/V, CXa, CZ0, c/V*CXq], [CZu/V, CZa, -CX0, c/V*(CZq+2*muc)], [0, 0, 0, c/V], [Cmu/V, Cma, 0, Cmq*c/V]])
 C3_sym = np.array([[CXde], [CZde], [0], [Cmde]])
 
 
@@ -58,7 +58,7 @@ plt.show()
 
 """#Asymmetric equations of motion in state space form"""
 
-V_test = 82.
+V = 82.
 
 #delta_a = 1.
 #delta_r = 1.
@@ -78,8 +78,8 @@ V_test = 82.
 #x_bar_sym = np.array([[beta], [phi], [p], [r]])
 #x_bardot_sym = np.array([[beta_dot], [phi_dot], [p_dot], [r_dot]])
 
-C1_asym = np.array([[(CYbdot-2*mub)*b/V_test, 0, 0, 0],[0, -1/2*b/V_test, 0, 0],[0, 0, -4*mub*KX2*b/V_test*b/2/V_test, 4*mub*KXZ*b/V_test*b/2/V_test],[Cnbdot*b/V_test, 0, 4*mub*KXZ*b/V_test*b/2/V_test, -4*mub*KZ2*b/V_test*b/2/V_test]])
-C2_asym = np.array([[CYb, CL, CYp*b/2/V_test, (CYr-4*mub)*b/2/V_test],[0,0,1*b/2/V_test,0],[Clb, 0, Clp*b/2/V_test, Clr*b/2/V_test],[Cnb, 0, Cnp*b/2/V_test, Cnr*b/2/V_test]])
+C1_asym = np.array([[(CYbdot-2*mub)*b/V, 0, 0, 0],[0, -1/2*b/V, 0, 0],[0, 0, -4*mub*KX2*b/V*b/2/V, 4*mub*KXZ*b/V*b/2/V],[Cnbdot*b/V, 0, 4*mub*KXZ*b/V*b/2/V, -4*mub*KZ2*b/V*b/2/V]])
+C2_asym = np.array([[CYb, CL, CYp*b/2/V, (CYr-4*mub)*b/2/V],[0,0,1*b/2/V,0],[Clb, 0, Clp*b/2/V, Clr*b/2/V],[Cnb, 0, Cnp*b/2/V, Cnr*b/2/V]])
 C3_asym = np.array([[CYda, CYdr], [0,0], [Clda, Cldr], [Cnda, Cndr]])
 
 
