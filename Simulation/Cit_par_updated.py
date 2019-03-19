@@ -9,8 +9,8 @@ from flight_data import time_d, V_tas_d, V_cas_d, roll_angle_d, pitch_angle_d, b
 
 
 # ==========================CHOOSE WHICH MOTION===================================================
-i = 0 #Check code, result is zer
-# i = 1 #Aperiodic Roll
+#i = 0 #Check code, result is zer
+i = 1 #Aperiodic Roll
 # i = 2 #Short Period 
 # i = 3 #Phugoid 
 # i = 4 #Dutch Roll 
@@ -86,8 +86,8 @@ depsda = 4 / (A + 2)            # Downwash gradient [ ]
 
 # Lift and drag coefficient
 
-CL =  CL       # Lift coefficient [ ]
-CD =  CD # Drag coefficient [ ]
+CL =  CL[i]       # Lift coefficient [ ]
+CD =  CD[i]       # Drag coefficient [ ]
 
 #--------------------------------------------------------
 
