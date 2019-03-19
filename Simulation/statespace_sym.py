@@ -9,8 +9,6 @@ from scipy import signal
 
 """Symmetric equations of motion to state space form"""
 
-V = 59.9
-
 #delta_e = 1.
 #
 #u = 1.
@@ -59,23 +57,23 @@ z,x,c = ml.lsim(sys_sym2, u, t)
 
 plt.subplot(2, 2, 1)
 plt.plot(t, (z[:,0] + V))
-plt.xlabel('Time [s]')
+plt.xlabel('Time [sec]')
 plt.ylabel('Velocity')
 
 plt.subplot(2, 2, 2)
 plt.plot(t, (z[:,1]))
-plt.xlabel('Time [s]')
+plt.xlabel('Time [sec]')
 plt.ylabel('Angle of Attack [rad]')
 
 plt.subplot(2, 2, 3)
 plt.plot(t, (z[:,2]))
-plt.xlabel('Time [s]')
+plt.xlabel('Time [sec]')
 plt.ylabel('Theta [rad]')
 
 plt.subplot(2, 2, 4)
 plt.plot(t, (z[:,3]))
-plt.xlabel('Time [s]')
-plt.ylabel('q')
+plt.xlabel('Time [sec]')
+plt.ylabel('q [rad/sec]')
 
 
 
