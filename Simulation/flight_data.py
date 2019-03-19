@@ -2,14 +2,14 @@ from math import *
 import matplotlib.pyplot as plt
 
 
-time_d = []
-V_tas_d = []
-V_cas_d = []
-roll_angle_d = []
-pitch_angle_d = []
-body_roll_rate_d = []
-body_pitch_rate_d = []
-body_yaw_rate_d = []
+time_d = [0]
+V_tas_d = [0]
+V_cas_d = [0]
+roll_angle_d = [0]
+pitch_angle_d = [0]
+body_roll_rate_d = [0]
+body_pitch_rate_d = [0]
+body_yaw_rate_d = [0]
 
 "*** Time ***"
 filename = 'time.dat' 
