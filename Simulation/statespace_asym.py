@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """#Asymmetric equations of motion in state space form"""
 import numpy as np
-from Cit_par_appC import *
+from Cit_par_updated import *
 import control
 import control.matlab as ml
 import matplotlib.pyplot as plt
@@ -73,4 +73,4 @@ plt.ylabel('r [rad/sec]')
 
 
 plt.show()
-plt.savefig('foo.png')
+plt.savefig('asym.png')
