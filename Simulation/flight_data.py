@@ -25,7 +25,7 @@ lines = time_data.readlines()
 
 for line in lines:
     line1 = line.strip('   ').split('   ')
-    time_d = line1
+    time_d1 = line1
 
 "*** True Airspeed ***"
 filename = 'V_tas.dat' 
@@ -80,6 +80,15 @@ lines = body_pitch_rate_data.readlines()
 for line in lines:
     line1 = line.strip('  ').split('  ')
     body_pitch_rate_d1.append(line1[0])
+    
+"*** Body Yaw Rate ***"
+filename = 'body_yaw_rate.dat' 
+body_yaw_rate_data = open(filename,'r')
+lines = body_yaw_rate_data.readlines()
+
+for line in lines:
+    line1 = line.strip('  ').split('  ')
+    body_yaw_rate_d1.append(line1[0])
 
 "*** Fuel Right Engine ***"
 filename = 'fuel_right.dat' 
@@ -136,10 +145,37 @@ for line in lines:
     line1 = line.strip('  ').split('  ')
     hp_d1.append(line1[0])
 
-time_d = []
+#---------------------------------------------------------------------------------------------------
+    
+time_d = [0]
+V_tas_d = [0]
+V_cas_d = [0]
+roll_angle_d = [0]
+pitch_angle_d = [0]
+body_roll_rate_d = [0]
+body_pitch_rate_d = [0]
+body_yaw_rate_d = [0]
+fuel_right_d = [0]
+fuel_left_d = [0]
+delta_a_d = [0]
+delta_e_d = [0]
+delta_r_d = [0]
+hp_d = [0]
+
 for i in lst_element:
     time_d.append(time_d1[i])
-
- 
+    V_tas_d.append(V_tas_d1[i])
+    V_cas_d.append(V_cas_d1[i])
+    roll_angle_d.append(roll_angle_d1[i])
+    pitch_angle_d.append(pitch_angle_d1[i])
+    body_roll_rate_d.append(body_roll_rate_d1[i])
+    body_pitch_rate_d.append(body_pitch_rate_d1[i])
+    body_yaw_rate_d.append(body_yaw_rate_d1[i])
+    fuel_right_d.append(fuel_right_d1[i])
+    fuel_left_d.append(fuel_left_d1[i])
+    delta_a_d.append(delta_a_d1[i])
+    delta_e_d.append(delta_e_d1[i])
+    delta_r_d.append(delta_r_d1[i])
+    hp_d.append(hp_d1[i])
 
 
