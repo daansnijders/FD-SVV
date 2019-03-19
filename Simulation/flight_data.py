@@ -140,7 +140,6 @@ time_d = []
 for i in lst_element:
     time_d.append(time_d1[i])
 
-print (time_d)
  
 
 
