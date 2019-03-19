@@ -2,14 +2,29 @@
 from math import *
 # xcg = 0.25 * c
 from FD_CLCD import e, CD0, CLa, CL, CD, Cma, Dmde #For Stationary Part
-from flight_data import *
+from flight_data import time_d, V_tas_d, V_cas_d, roll_angle_d, pitch_angle_d, body_roll_rate_d, body_pitch_rate_d, body_yaw_rate_d, hp_d
 
-# Stationary flight condition JUST before Manouvre
 
-hp0    =        	   # pressure altitude in the stationary flight condition [m]
-V0     =                 # true airspeed in the stationary flight condition [m/sec]
-alpha0 =                # angle of attack in the stationary flight condition [rad]
-th0    =                  # math.pitch angle in the stationary flight condition [rad]
+
+
+
+
+# ==========================CHOOSE WHICH MOTION===================================================
+i = 0 #Check code, result is zer
+# i = 1 #Aperiodic Roll
+# i = 2 #Short Period
+# i = 3 #Phugoid
+# i = 4 #Dutch Roll 
+# i = 5 #Dutch Roll with Yaw Damper
+# i = 6 #Spiral
+# =============================================================================
+
+# Stationary flight condition JUST before Manouevre
+
+hp0    =  hp_d[i]    	         # pressure altitude in the stationary flight condition [m]
+V0     =  V_tas_d[i]            # true airspeed in the stationary flight condition [m/sec]
+#alpha0 =  9999999999.           # angle of attack in the stationary flight condition [rad]
+th0    =   pitch_angle_d[i]     # math.pitch angle in the stationary flight condition [rad]
 
 # Aircraft mass
 m      =             # mass [kg]
