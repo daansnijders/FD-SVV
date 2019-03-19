@@ -1,18 +1,33 @@
 # Citation 550 - Linear simulation
 from math import *
 # xcg = 0.25 * c
-from FD_CLCD import W_data, hp, V_tas, alpha_rad, pitch_rad, e, CD0, CLa, CL, CD
+from FD_CLCD import e, CD0, CLa, CL, CD, Cma, Dmde #For Stationary Part
+from flight_data import time_d, V_tas_d, V_cas_d, roll_angle_d, pitch_angle_d, body_roll_rate_d, body_pitch_rate_d, body_yaw_rate_d, hp_d, m_d #For stationary meas during dynamic part
 
-# Stationary flight condition
 
-hp0    =    hp	   # pressure altitude in the stationary flight condition [m]
-V0     =    V_tas       # true airspeed in the stationary flight condition [m/sec]
-alpha0 =    alpha_rad     # angle of attack in the stationary flight condition [rad]
-th0    =    pitch_rad   # math.pitch angle in the stationary flight condition [rad]
+
+
+
+
+# ==========================CHOOSE WHICH MOTION===================================================
+i = 0 #Check code, result is zer
+# i = 1 #Aperiodic Roll
+# i = 2 #Short Period
+# i = 3 #Phugoid
+# i = 4 #Dutch Roll 
+# i = 5 #Dutch Roll with Yaw Damper
+# i = 6 #Spiral
+# =============================================================================
+
+# Stationary flight condition JUST before Manouevre
+
+hp0    =  hp_d[i]    	         # pressure altitude in the stationary flight condition [m]
+V0     =  V_tas_d[i]            # true airspeed in the stationary flight condition [m/sec]
+#alpha0 =  9999999999.           # angle of attack in the stationary flight condition [rad]
+th0    =   pitch_angle_d[i]     # math.pitch angle in the stationary flight condition [rad]
 
 # Aircraft mass
-
-m      =    9.         # mass [kg]
+m      =   m_d[0]          # mass [kg]
 
 # aerodynamic properties
 e      =     e        # Oswald factor [ ]
@@ -69,7 +84,6 @@ depsda = 4 / (A + 2)            # Downwash gradient [ ]
 
 CL =  CL       # Lift coefficient [ ]
 CD =  CD # Drag coefficient [ ]
-
 
 #--------------------------------------------------------
 
