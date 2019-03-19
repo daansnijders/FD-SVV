@@ -9,8 +9,6 @@ from scipy import signal
 
 """Symmetric equations of motion to state space form"""
 
-V = 59.9
-
 #delta_e = 1.
 #
 #u = 1.
@@ -30,11 +28,11 @@ V = 59.9
 
 
 
-C1_sym = np.array([[-2*muc*c/V/V, 0, 0, 0], 
-                   [0, (CZadot-2*muc)*c/V, 0, 0], 
-                   [0, 0, -c/V, 0], 
-                   [0, Cmadot*c/V, 0, -2*muc*KY2*c*c/V/V]])
-C2_sym = np.array([[CXu/V, CXa, CZ0, (c/V)*CXq], [CZu/V, CZa, -CX0, c/V*(CZq+2*muc)], [0, 0, 0, c/V], [Cmu/V, Cma, 0, Cmq*c/V]])
+C1_sym = np.array([[-2*muc*c/V/V0, 0, 0, 0], 
+                   [0, (CZadot-2*muc)*c/V0, 0, 0], 
+                   [0, 0, -c/V0, 0], 
+                   [0, Cmadot*c/V0, 0, -2*muc*KY2*c*c/V0/V0]])
+C2_sym = np.array([[CXu/V0, CXa, CZ0, (c/V0)*CXq], [CZu/V0, CZa, -CX0, c/V0*(CZq+2*muc)], [0, 0, 0, c/V0], [Cmu/V0, Cma, 0, Cmq*c/V0]])
 C3_sym = np.array([[CXde], [CZde], [0], [Cmde]])
 
 
@@ -58,24 +56,24 @@ z,x,c = ml.lsim(sys_sym2, u, t)
 #yout, T = ml.impulse(sys_sym2)
 
 plt.subplot(2, 2, 1)
-plt.plot(t, (z[:,0] + V))
-plt.xlabel('Time [s]')
+plt.plot(t, (z[:,0] + V0))
+plt.xlabel('Time [sec]')
 plt.ylabel('Velocity')
 
 plt.subplot(2, 2, 2)
 plt.plot(t, (z[:,1]))
-plt.xlabel('Time [s]')
+plt.xlabel('Time [sec]')
 plt.ylabel('Angle of Attack [rad]')
 
 plt.subplot(2, 2, 3)
 plt.plot(t, (z[:,2]))
-plt.xlabel('Time [s]')
+plt.xlabel('Time [sec]')
 plt.ylabel('Theta [rad]')
 
 plt.subplot(2, 2, 4)
 plt.plot(t, (z[:,3]))
-plt.xlabel('Time [s]')
-plt.ylabel('q')
+plt.xlabel('Time [sec]')
+plt.ylabel('q [rad/sec]')
 
 
 
