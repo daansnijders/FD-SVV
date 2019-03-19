@@ -140,15 +140,16 @@ function = np.poly1d(z_function)
 #plt.ylabel('de [rad]')
 
 '*** Elevator vs AoA ***'
-z_function1 = np.polyfit(alpha[:7], delta_e_eq[:7], 1)
+alpha_rad = np.array(alpha)*(pi/180)
+z_function1 = np.polyfit(alpha_rad[:7], delta_e_eq[:7], 1)
 function1 = np.poly1d(z_function1)
 
-#plt.plot(alpha[:7], function1(alpha[:7]), label='M = [0.23 - 0.32], Re = [8200000 - 12100000]')
-#plt.plot(alpha[:7], delta_e_eq[:7], 'x')
+#plt.plot(alpha_rad[:7], function1(alpha_rad[:7]), label='M = [0.23 - 0.32], Re = [8200000 - 12100000]')
+#plt.plot(alpha_rad[:7], delta_e_eq[:7], 'x')
 #plt.legend()
 #plt.title('Clean cruise (flaps up, gear up)')
 #plt.grid()
-#plt.xlabel('AoA [deg]')
+#plt.xlabel('AoA [rad]')
 #plt.ylabel('de [rad]')
 
 
