@@ -28,11 +28,11 @@ from scipy import signal
 
 
 
-C1_sym = np.array([[-2*muc*c/V/V, 0, 0, 0], 
-                   [0, (CZadot-2*muc)*c/V, 0, 0], 
-                   [0, 0, -c/V, 0], 
-                   [0, Cmadot*c/V, 0, -2*muc*KY2*c*c/V/V]])
-C2_sym = np.array([[CXu/V, CXa, CZ0, (c/V)*CXq], [CZu/V, CZa, -CX0, c/V*(CZq+2*muc)], [0, 0, 0, c/V], [Cmu/V, Cma, 0, Cmq*c/V]])
+C1_sym = np.array([[-2*muc*c/V/V0, 0, 0, 0], 
+                   [0, (CZadot-2*muc)*c/V0, 0, 0], 
+                   [0, 0, -c/V0, 0], 
+                   [0, Cmadot*c/V0, 0, -2*muc*KY2*c*c/V0/V0]])
+C2_sym = np.array([[CXu/V0, CXa, CZ0, (c/V0)*CXq], [CZu/V0, CZa, -CX0, c/V0*(CZq+2*muc)], [0, 0, 0, c/V0], [Cmu/V0, Cma, 0, Cmq*c/V0]])
 C3_sym = np.array([[CXde], [CZde], [0], [Cmde]])
 
 
@@ -56,7 +56,7 @@ z,x,c = ml.lsim(sys_sym2, u, t)
 #yout, T = ml.impulse(sys_sym2)
 
 plt.subplot(2, 2, 1)
-plt.plot(t, (z[:,0] + V))
+plt.plot(t, (z[:,0] + V0))
 plt.xlabel('Time [sec]')
 plt.ylabel('Velocity')
 
