@@ -1,18 +1,18 @@
 # Citation 550 - Linear simulation
 from math import *
 # xcg = 0.25 * c
-from FD_CLCD import W_data, hp, V_tas, alpha_rad, pitch_rad, e, CD0, CLa, CL, CD
+from FD_CLCD import e, CD0, CLa, CL, CD, Cma, Dmde #For Stationary Part
+from flight_data import *
 
-# Stationary flight condition
+# Stationary flight condition JUST before Manouvre
 
-hp0    =    hp	   # pressure altitude in the stationary flight condition [m]
-V0     =    V_tas       # true airspeed in the stationary flight condition [m/sec]
-alpha0 =    alpha_rad     # angle of attack in the stationary flight condition [rad]
-th0    =    pitch_rad   # math.pitch angle in the stationary flight condition [rad]
+hp0    =        	   # pressure altitude in the stationary flight condition [m]
+V0     =                 # true airspeed in the stationary flight condition [m/sec]
+alpha0 =                # angle of attack in the stationary flight condition [rad]
+th0    =                  # math.pitch angle in the stationary flight condition [rad]
 
 # Aircraft mass
-
-m      =    9.         # mass [kg]
+m      =             # mass [kg]
 
 # aerodynamic properties
 e      =     e        # Oswald factor [ ]
@@ -69,7 +69,6 @@ depsda = 4 / (A + 2)            # Downwash gradient [ ]
 
 CL =  CL       # Lift coefficient [ ]
 CD =  CD # Drag coefficient [ ]
-
 
 #--------------------------------------------------------
 
