@@ -1,6 +1,6 @@
 # Citation 550 - Linear simulation
 from math import *
-c      = 2.022	
+c      = 2.0569
 xcg = 0.30 * c
 
 # Stationary flight condition
@@ -19,12 +19,12 @@ CD0    =     0.04      # Zero lift drag coefficient [ ]
 CLa    =       5.084      # Slope of CL-alpha curve [ ]
 
 # Longitudinal stability
-Cma    =    -0.43        # longitudinal stabilty [ ]
-Cmde   =     -1.5530       # elevator effectiveness [ ]
+Cma    =    -0.5626      # longitudinal stabilty [ ]
+Cmde   =     -1.1642       # elevator effectiveness [ ]
 
 # Aircraft geometry
 
-S      = 24.2	          # wing area [m^2]
+S      = 30.00	          # wing area [m^2]
 Sh     = 0.2 * S         # stabiliser area [m^2]
 Sh_S   = Sh / S	          # [ ]
 lh     = 5.5    # tail length [m]
@@ -56,7 +56,7 @@ mub    = m / (rho * S * b)
 KX2    = 0.019
 KZ2    = 0.042
 KXZ    = 0.002
-KY2    = 0.980
+KY2    = 1.3925
 
 # Aerodynamic constants
 
@@ -73,22 +73,22 @@ CD = CD0 + (CLa * alpha0) ** 2 / (pi * A * e) # Drag coefficient [ ]
 # Stabiblity derivatives
 
 CX0    = 0
-CXu    = -0.2199
-CXa    = 0.4653
-CXadot = 0
-CXq    = 0
-CXde   = 0
+CXu    = -0.0279
+CXa    = -0.4797
+CXadot = 0.0833
+CXq    = -0.2817
+CXde   = -0.0373
 
 CZ0    = -1.1360
-CZu    = -2.2720
-CZa    = -5.16
-CZadot = -1.43
-CZq    = -3.86
-CZde   = -0.6238
+CZu    = -0.3762
+CZa    = -5.7434
+CZadot = -0.0035
+CZq    = -5.6629
+CZde   = -0.6961
 
-Cmu    = 0
-Cmadot = -3.7
-Cmq    = -7.04
+Cmu    = 0.0699
+Cmadot = 0.1780
+Cmq    = -8.7941
 
 CYb    = -0.7500
 CYbdot =  0     
