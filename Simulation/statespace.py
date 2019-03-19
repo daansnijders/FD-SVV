@@ -49,13 +49,36 @@ eig = np.linalg.eig(A_sym)
 
 t = np.linspace(0., 150, 150)
 u = np.zeros(len(t))
-u[:] = -0.005
+for i in range (20):
+    u[i] = -0.006
 z,x,c = ml.lsim(sys_sym2, u, t)
 
 #yout, T = ml.impulse(sys_sym2)
 
+plt.subplot(2, 2, 1)
+plt.plot(t, (z[:,0] + V))
+plt.xlabel('Time [s]')
+plt.ylabel('Velocity')
+
+plt.subplot(2, 2, 2)
+plt.plot(t, (z[:,1]))
+plt.xlabel('Time [s]')
+plt.ylabel('Angle of Attack [rad]')
+
+plt.subplot(2, 2, 3)
+plt.plot(t, (z[:,2]))
+plt.xlabel('Time [s]')
+plt.ylabel('Theta [rad]')
+
+plt.subplot(2, 2, 4)
 plt.plot(t, (z[:,3]))
+plt.xlabel('Time [s]')
+plt.ylabel('q')
+
+
+
 plt.show()
+plt.savefig('foo.png')
 
 #print (sys_sym)
 

@@ -37,7 +37,7 @@ Ah     = bh ** 2 / Sh    # stabilser aspect ratio [ ]
 Vh_V   = 1	          # [ ]
 ih     = -2 * pi / 180   # stabiliser angle of incidence [rad]
 
-# Constant values concerning atmosphere and gravity
+# Constant values concerning atmosphere and gravity02.
 
 rho0   = 1.2250          # air density at sea level [kg/m^3] 
 lambdas = -0.0065         # temperature gradient in ISA [K/m]
