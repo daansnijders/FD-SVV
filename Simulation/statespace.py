@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import numpy as np
-from Cit_par_appC import *
+from Cit_par_updated import *
 import control
 import control.matlab as ml
 import matplotlib.pyplot as plt
