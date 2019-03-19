@@ -1,9 +1,8 @@
 # Citation 550 - Linear simulation
 from math import *
 # xcg = 0.25 * c
-from FD_CLCD import e, CD0, CLa, CL, CD, Cma, Dmde #For Stationary Part
+from FD_CLCD import e, CD0, CLa, CL, CD #For Stationary Part
 from flight_data import time_d, V_tas_d, V_cas_d, roll_angle_d, pitch_angle_d, body_roll_rate_d, body_pitch_rate_d, body_yaw_rate_d, hp_d, m_d #For stationary meas during dynamic part
-
 
 
 
@@ -12,12 +11,14 @@ from flight_data import time_d, V_tas_d, V_cas_d, roll_angle_d, pitch_angle_d, b
 # ==========================CHOOSE WHICH MOTION===================================================
 i = 0 #Check code, result is zer
 # i = 1 #Aperiodic Roll
-# i = 2 #Short Period
-# i = 3 #Phugoid
+# i = 2 #Short Period 
+# i = 3 #Phugoid 
 # i = 4 #Dutch Roll 
-# i = 5 #Dutch Roll with Yaw Damper
-# i = 6 #Spiral
+# i = 5 #Dutch Roll with Yaw Damper 
+# i = 6 #Spiral 
 # =============================================================================
+
+"""ÏNPUTS FROM THE FLIGHT DATA:"""
 
 # Stationary flight condition JUST before Manouevre
 
@@ -27,7 +28,7 @@ V0     =  V_tas_d[i]            # true airspeed in the stationary flight conditi
 th0    =   pitch_angle_d[i]     # math.pitch angle in the stationary flight condition [rad]
 
 # Aircraft mass
-m      =   m_d[0]          # mass [kg]
+m      =   m_d[i]          # mass [kg]
 
 # aerodynamic properties
 e      =     e        # Oswald factor [ ]
@@ -35,8 +36,11 @@ CD0    =     CD0      # Zero lift drag coefficient [ ]
 CLa    =     CLa       # Slope of CL-alpha curve [ RAD ! ]
 
 # Longitudinal stability
-Cma    =     1.        # longitudinal stabilty [ ]
-Cmde   =       1.      # elevator effectiveness [ ]
+Cma    =     -0.796        # longitudinal stabilty [as found by Stationary Measurements ]
+Cmde   =     -1.521      # elevator effectiveness [as found by stationary Measurments ]
+
+
+""""CALCULATE THE OTHER PARAMETERS FROM THESE INPUTS:"""
 
 # Aircraft geometry
 S      = 30.00	          # wing area [m^2]
