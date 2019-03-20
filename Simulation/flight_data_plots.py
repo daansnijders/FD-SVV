@@ -176,7 +176,7 @@ delta_r_input_aperiodic = (delta_r_d1[lst_element[0]+x_f5*10:lst_element[0]+time
 #plt.grid()
 
 "*** Spiral Motion ***"
-time_spiral = 30
+time_spiral = 100
 x_f6 = 0
 x_b6 = 0 
 x_change6 = (-x_f6 + x_b6)
