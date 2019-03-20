@@ -4,6 +4,7 @@ from math import *
 from FD_CLCD import e, CD0, CLa, CL, CD #For Stationary Part
 from flight_data import time_d, V_tas_d, V_cas_d, roll_angle_d, pitch_angle_d, body_roll_rate_d, body_pitch_rate_d, body_yaw_rate_d, hp_d, m_d #For stationary meas during dynamic part
 
+print()
 print("What motion are you working on?")
 print("0) Results in errors")
 print("1) Aperiodic Roll")
