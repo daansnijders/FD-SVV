@@ -20,6 +20,7 @@ m_d1 = []
 T_ISA_d1 = []
 rho_d1 = []
 p_d1 = []
+AoA_d1 = []
 
 lst_element = [27380, 28010, 28510, 30540, 31140, 32710]
 
@@ -158,6 +159,16 @@ lines = altitude_data.readlines()
 for line in lines:
     line1 = line.strip('  ').split('  ')
     hp_d1.append(float(line1[0]))
+
+"*** Angle of Attack ***"
+filename = 'AoA.dat' 
+AoA_data = open(filename,'r')
+lines = AoA_data.readlines()
+
+for line in lines:
+    line1 = line.strip('  ').split('  ')
+    AoA_d1.append(float(line1[0]))
+
 
 #---------------------------------------------------------------------------------------------------
 
