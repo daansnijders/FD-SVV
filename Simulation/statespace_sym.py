@@ -47,14 +47,14 @@ sys_sym2 = ml.ss(A_sym, B_sym, C_sym, D_sym)
 eig = np.linalg.eig(A_sym)
 #print (sys_sym)
 
-t = np.linspace(0., 170, 1700)
+t = np.linspace(0., 15, 150)
 u = np.zeros(len(t))
 for i in range (20):
     u[i] = -0.006
 
 """Initial conditions"""
-X0 = np.array([[V_tas_d1[lst_element[2]]],[AoA_d1[lst_element[2]]],[pitch_angle_d1[lst_element[2]]],[body_pitch_rate_d1[lst_element[2]]]])
-z,x,c = ml.lsim(sys_sym2, delta_e_input_phugoid, t)
+X0_phugoid = np.array([[V_tas_d1[lst_element[2]]],[AoA_d1[lst_element[2]]],[pitch_angle_d1[lst_element[2]]],[body_pitch_rate_d1[lst_element[2]]]])
+z,x,c = ml.lsim(sys_sym2, delta_e_input_short, t)
 
 
 #yout, T = ml.impulse(sys_sym2)
@@ -65,7 +65,7 @@ plt.xlabel('Time [sec]')
 plt.ylabel('Velocity V_tas')
 
 plt.subplot(2, 2, 3)
-plt.plot(t, (z[:,1]+ X0[1]-0.015))
+plt.plot(t, (z[:,1]+ X0_phugoid[1]-0.015))
 plt.xlabel('Time [sec]')
 plt.ylabel('Angle of Attack [rad]')
 

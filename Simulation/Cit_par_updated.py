@@ -2,7 +2,7 @@
 from math import *
 # xcg = 0.25 * c
 from FD_CLCD import e, CD0, CLa, CL, CD #For Stationary Part
-from flight_data import time_d, V_tas_d, V_cas_d, roll_angle_d, pitch_angle_d, body_roll_rate_d, body_pitch_rate_d, body_yaw_rate_d, hp_d, m_d #For stationary meas during dynamic part
+from flight_data import time_d, V_tas_d, V_cas_d, roll_angle_d, pitch_angle_d, body_roll_rate_d, body_pitch_rate_d, body_yaw_rate_d, hp_d, m_d, CL_d, CD_d #For stationary meas during dynamic part
 
 motion_names = ["Zeros as input", "Aperiodic Roll", "Short Period", "Phugoid", "Dutch Roll", "Dutch Roll with Yaw Damper", "Spiral"]
 
@@ -99,8 +99,8 @@ depsda = 4 / (A + 2)            # Downwash gradient [ ]
 
 # Lift and drag coefficient
 
-CL =  CL[i]       # Lift coefficient [ ]
-CD =  CD[i]       # Drag coefficient [ ]
+CL =  CL_d[i]       # Lift coefficient [ ]
+CD =  CD_d[i]       # Drag coefficient [ ]
 
 #--------------------------------------------------------
 

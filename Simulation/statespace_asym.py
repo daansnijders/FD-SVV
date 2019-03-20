@@ -7,7 +7,7 @@ import control.matlab as ml
 import matplotlib.pyplot as plt
 #from FD_CLCD import *
 from scipy import signal
-
+from flight_data_plots import *
 
 #delta_a = 1.
 #delta_r = 1.
@@ -42,36 +42,41 @@ sys_asym = signal.StateSpace(A_asym, B_asym, C_asym, D_asym)
 sys_asym2 = ml.ss(A_asym, B_asym, C_asym, D_asym)
 #print (sys_asym)
 
-t = np.linspace(0., 15, 150)
+t = np.linspace(0., 12, 120)
 u = np.zeros((len(t),2))
 for i in range (10):
     u[i,1] = 0.025
     u[i,0] = 0.
+u = np.column_stack((delta_a_input_aperiodic, delta_r_input_aperiodic))
 z,x,c = ml.lsim(sys_asym2, u, t)
-
+X0 = np.array([[0],[roll_angle_d1[lst_element[0]]],[body_roll_rate_d1[lst_element[0]]],[body_yaw_rate_d1[lst_element[0]]]])
+z =  z*-1
 #yout, T = ml.impulse(sys_sym2)
 
 plt.subplot(2, 2, 1)
-plt.plot(t, (z[:,0]))
+plt.plot(t, (z[:,0]), label='Numerical model')
 plt.xlabel('Time [sec]')
 plt.ylabel(r'$\beta$ [rad]')
+plt.legend()
 
 plt.subplot(2, 2, 2)
-plt.plot(t, (z[:,1]))
+plt.plot(t, (z[:,1]+X0[1]), label='Numerical model')
 plt.xlabel('Time [sec]')
 plt.ylabel(r'$\varphi$ [rad]')
+plt.legend()
 
 plt.subplot(2, 2, 3)
-plt.plot(t, (z[:,2]))
+plt.plot(t, (z[:,2]+X0[2]), label='Numerical model')
 plt.xlabel('Time [s]')
 plt.ylabel('p [rad/sec]')
+plt.legend()
 
 plt.subplot(2, 2, 4)
-plt.plot(t, (z[:,3]))
+plt.plot(t, (z[:,3]+X0[3]), label='Numerical model')
 plt.xlabel('Time [s]')
 plt.ylabel('r [rad/sec]')
-
+plt.legend()
 
 
 plt.show()
-plt.savefig('asym.png')
+plt.savefig('asym-aperiodic.png')

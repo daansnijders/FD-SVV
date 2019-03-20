@@ -42,14 +42,15 @@ sys_asym = signal.StateSpace(A_asym, B_asym, C_asym, D_asym)
 sys_asym2 = ml.ss(A_asym, B_asym, C_asym, D_asym)
 #print (sys_asym)
 
-t = np.linspace(0., 12, 120)
+t = np.linspace(0., 100, 1000)
 u = np.zeros((len(t),2))
 for i in range (10):
     u[i,1] = 0.025
     u[i,0] = 0.
-u = np.column_stack((delta_a_input_dutch_yaw, delta_r_input_dutch_yaw))
+u = np.column_stack((delta_a_input_spiral, delta_r_input_spiral))
 z,x,c = ml.lsim(sys_asym2, u, t)
-X0 = np.array([[0],[roll_angle_d1[lst_element[4]]],[body_roll_rate_d1[lst_element[4]]],[body_yaw_rate_d1[lst_element[4]]]])
+#X0 = np.array([[0],[roll_angle_d1[lst_element[5]]],[body_roll_rate_d1[lst_element[5]]],[body_yaw_rate_d1[lst_element[5]]]])
+X0 = np.array([[0],[0],[0],[0]])
 z =  z*-1
 #yout, T = ml.impulse(sys_sym2)
 
@@ -79,4 +80,4 @@ plt.legend()
 
 
 plt.show()
-plt.savefig('asym-dutchyaw.png')
+plt.savefig('asym-spiral.png')
