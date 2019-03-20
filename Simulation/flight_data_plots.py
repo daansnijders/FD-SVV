@@ -127,8 +127,8 @@ x_f4 = 0
 x_b4 = 0
 x_change4 = (-x_f4 + x_b4)
 
-delta_a_input_dutch_yaw = (delta_a_d1[lst_element[3]+x_f4*10:lst_element[3]+time_dutch_yaw*10+x_b4*10])
-delta_r_input_dutch_yaw = (delta_r_d1[lst_element[3]+x_f4*10:lst_element[3]+time_dutch_yaw*10+x_b4*10])
+delta_a_input_dutch_yaw = (delta_a_d1[lst_element[4]+x_f4*10:lst_element[4]+time_dutch_yaw*10+x_b4*10])
+delta_r_input_dutch_yaw = (delta_r_d1[lst_element[4]+x_f4*10:lst_element[4]+time_dutch_yaw*10+x_b4*10])
 
 #plt.subplot(222)
 #plt.plot(np.arange(0,time_dutch_yaw+x_change4,0.1), roll_angle_d1[lst_element[4]+x_f4*10:lst_element[4]+time_dutch_yaw*10+x_b4*10])
@@ -175,7 +175,32 @@ delta_r_input_aperiodic = (delta_r_d1[lst_element[0]+x_f5*10:lst_element[0]+time
 #plt.ylabel('r [rad/s]')
 #plt.grid()
 
+"*** Spiral Motion ***"
+time_spiral = 30
+x_f6 = 0
+x_b6 = 0 
+x_change6 = (-x_f6 + x_b6)
 
+delta_a_input_spiral = (delta_a_d1[lst_element[5]+x_f6*10:lst_element[5]+time_spiral*10+x_b6*10])
+delta_r_input_spiral = (delta_r_d1[lst_element[5]+x_f6*10:lst_element[5]+time_spiral*10+x_b6*10])
+
+#plt.subplot(222)
+#plt.plot(np.arange(0,time_spiral+x_change6,0.1), roll_angle_d1[lst_element[5]+x_f6*10:lst_element[5]+time_spiral*10+x_b6*10])
+#plt.xlabel('Time [s]')
+#plt.ylabel(r'$\phi$ [rad]')
+#plt.grid()
+#
+#plt.subplot(223)
+#plt.plot(np.arange(0,time_spiral+x_change6,0.1), body_roll_rate_d1[lst_element[5]+x_f6*10:lst_element[5]+time_spiral*10+x_b6*10])
+#plt.xlabel('Time [s]')
+#plt.ylabel('p [rad/s]')
+#plt.grid()
+#
+#plt.subplot(224)
+#plt.plot(np.arange(0,time_spiral+x_change6,0.1), body_yaw_rate_d1[lst_element[5]+x_f6*10:lst_element[5]+time_spiral*10+x_b6*10])
+#plt.xlabel('Time [s]')
+#plt.ylabel('r [rad/s]')
+#plt.grid()
 
 
 
