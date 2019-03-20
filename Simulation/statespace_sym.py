@@ -28,7 +28,7 @@ from scipy import signal
 
 
 
-C1_sym = np.array([[-2*muc*c/V/V0, 0, 0, 0], 
+C1_sym = np.array([[-2*muc*c/V0/V0, 0, 0, 0], 
                    [0, (CZadot-2*muc)*c/V0, 0, 0], 
                    [0, 0, -c/V0, 0], 
                    [0, Cmadot*c/V0, 0, -2*muc*KY2*c*c/V0/V0]])

@@ -46,6 +46,7 @@ t = np.linspace(0., 15, 150)
 u = np.zeros((len(t),2))
 for i in range (10):
     u[i,1] = 0.025
+    u[i,0] = 0.
 z,x,c = ml.lsim(sys_asym2, u, t)
 
 #yout, T = ml.impulse(sys_sym2)
