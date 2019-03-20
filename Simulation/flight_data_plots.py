@@ -26,61 +26,63 @@ AoA_d1 = np.array(AoA_d1)*(pi/180)
 print (lst_element)
 
 "*** Phugoid Motion ***"
-#time_phugoid = 170
-#x_f1 = 0
-#x_b1 = 0
-#x_change1 = (-x_f1 + x_b1)
-#
-#plt.subplot(221)
-#plt.plot(np.arange(0,time_phugoid+x_change1,0.1), V_tas_d1[lst_element[2]+x_f1*10:lst_element[2]+time_phugoid*10+x_b1*10])
-#plt.xlabel('Time [s]')
-#plt.ylabel('V [m/s]')
-#plt.grid()
-#
-#plt.subplot(222)
-#plt.plot(np.arange(0,time_phugoid+x_change1,0.1), pitch_angle_d1[lst_element[2]+x_f1*10:lst_element[2]+time_phugoid*10+x_b1*10])
-#plt.xlabel('Time [s]')
-#plt.ylabel(r'$\Theta$ [rad]')
-#plt.grid()
-#
-#plt.subplot(223)
-#plt.plot(np.arange(0,time_phugoid+x_change1,0.1), AoA_d1[lst_element[2]+x_f1*10:lst_element[2]+time_phugoid*10+x_b1*10])
-#plt.xlabel('Time [s]')
-#plt.ylabel(r'$\alpha$ [rad]')
-#plt.grid()
-#
-#plt.subplot(224)
-#plt.plot(np.arange(0,time_phugoid+x_change1, 0.1), body_pitch_rate_d1[lst_element[2]+x_f1*10:lst_element[2]+time_phugoid*10+x_b1*10])
-#plt.xlabel('Time [s]')
-#plt.ylabel('q [rad/s]')
-#plt.grid()
-
-"*** Short Period ***"
-time_short = 15
-x_f2 = 0
-x_b2 = 0  
-x_change2 = (-x_f2 + x_b2)
+time_phugoid = 170
+x_f1 = 25
+x_b1 = -25
+x_change1 = (-x_f1 + x_b1)
 
 plt.subplot(221)
-plt.plot(np.arange(0,time_short+x_change2,0.1), V_tas_d1[lst_element[1]+x_f2*10:lst_element[1]+time_short*10+x_b2*10])
+plt.plot(np.arange(0,time_phugoid+x_change1,0.1), V_tas_d1[lst_element[2]+x_f1*10:lst_element[2]+time_phugoid*10+x_b1*10])
 plt.xlabel('Time [s]')
 plt.ylabel('V [m/s]')
 plt.grid()
 
 plt.subplot(222)
-plt.plot(np.arange(0,time_short+x_change2,0.1), pitch_angle_d1[lst_element[1]+x_f2*10:lst_element[1]+time_short*10+x_b2*10])
+plt.plot(np.arange(0,time_phugoid+x_change1,0.1), pitch_angle_d1[lst_element[2]+x_f1*10:lst_element[2]+time_phugoid*10+x_b1*10])
 plt.xlabel('Time [s]')
 plt.ylabel(r'$\Theta$ [rad]')
 plt.grid()
 
 plt.subplot(223)
-plt.plot(np.arange(0,time_short+x_change2,0.1), AoA_d1[lst_element[1]+x_f2*10:lst_element[1]+time_short*10+x_b2*10])
+plt.plot(np.arange(0,time_phugoid+x_change1,0.1), AoA_d1[lst_element[2]+x_f1*10:lst_element[2]+time_phugoid*10+x_b1*10])
 plt.xlabel('Time [s]')
 plt.ylabel(r'$\alpha$ [rad]')
 plt.grid()
 
 plt.subplot(224)
-plt.plot(np.arange(0,time_short+x_change2,0.1), body_pitch_rate_d1[lst_element[1]+x_f2*10:lst_element[1]+time_short*10+x_b2*10])
+plt.plot(np.arange(0,time_phugoid+x_change1, 0.1), body_pitch_rate_d1[lst_element[2]+x_f1*10:lst_element[2]+time_phugoid*10+x_b1*10])
 plt.xlabel('Time [s]')
 plt.ylabel('q [rad/s]')
 plt.grid()
+
+"*** Short Period ***"
+#time_short = 15
+#x_f2 = 0
+#x_b2 = 0  
+#x_change2 = (-x_f2 + x_b2)
+#
+#plt.subplot(221)
+#plt.plot(np.arange(0,time_short+x_change2,0.1), V_tas_d1[lst_element[1]+x_f2*10:lst_element[1]+time_short*10+x_b2*10])
+#plt.xlabel('Time [s]')
+#plt.ylabel('V [m/s]')
+#plt.grid()
+#
+#plt.subplot(222)
+#plt.plot(np.arange(0,time_short+x_change2,0.1), pitch_angle_d1[lst_element[1]+x_f2*10:lst_element[1]+time_short*10+x_b2*10])
+#plt.xlabel('Time [s]')
+#plt.ylabel(r'$\Theta$ [rad]')
+#plt.grid()
+#
+#plt.subplot(223)
+#plt.plot(np.arange(0,time_short+x_change2,0.1), AoA_d1[lst_element[1]+x_f2*10:lst_element[1]+time_short*10+x_b2*10])
+#plt.xlabel('Time [s]')
+#plt.ylabel(r'$\alpha$ [rad]')
+#plt.grid()
+#
+#plt.subplot(224)
+#plt.plot(np.arange(0,time_short+x_change2,0.1), body_pitch_rate_d1[lst_element[1]+x_f2*10:lst_element[1]+time_short*10+x_b2*10])
+#plt.xlabel('Time [s]')
+#plt.ylabel('q [rad/s]')
+#plt.grid()
+
+delta_e_input_phugoid =  (delta_e_d1[lst_element[2]+x_f1*10:lst_element[2]+time_phugoid*10+x_b1*10])
