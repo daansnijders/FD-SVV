@@ -85,4 +85,4 @@ plt.grid()
 #plt.ylabel('q [rad/s]')
 #plt.grid()
 
-delta_e_input_phugoid =  (delta_e_d1[lst_element[2]+x_f1*10:lst_element[2]+time_phugoid*10+x_b1*10])
+#delta_e_input_phugoid =  (delta_e_d1[lst_element[2]+x_f1*10:lst_element[2]+time_phugoid*10+x_b1*10])
