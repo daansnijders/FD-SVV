@@ -6,6 +6,7 @@ import control.matlab as ml
 import matplotlib.pyplot as plt
 #from FD_CLCD import *
 from scipy import signal
+from flight_data_plots import *
 
 """Symmetric equations of motion to state space form"""
 
@@ -47,11 +48,11 @@ eig = np.linalg.eig(A_sym)
 #print (sys_sym)
 
 
-t = np.linspace(0., 150, 150)
+t = np.linspace(0., 170, 1700)
 u = np.zeros(len(t))
 for i in range (20):
     u[i] = -0.006
-z,x,c = ml.lsim(sys_sym2, u, t)
+z,x,c = ml.lsim(sys_sym2, delta_e_input_phugoid, t)
 
 #yout, T = ml.impulse(sys_sym2)
 
@@ -60,12 +61,12 @@ plt.plot(t, (z[:,0] + V0))
 plt.xlabel('Time [sec]')
 plt.ylabel('Velocity')
 
-plt.subplot(2, 2, 2)
+plt.subplot(2, 2, 3)
 plt.plot(t, (z[:,1]))
 plt.xlabel('Time [sec]')
 plt.ylabel('Angle of Attack [rad]')
 
-plt.subplot(2, 2, 3)
+plt.subplot(2, 2, 2)
 plt.plot(t, (z[:,2]))
 plt.xlabel('Time [sec]')
 plt.ylabel('Theta [rad]')

@@ -27,8 +27,8 @@ print (lst_element)
 
 "*** Phugoid Motion ***"
 time_phugoid = 170
-x_f1 = 25
-x_b1 = -25
+x_f1 = 0
+x_b1 = 0
 x_change1 = (-x_f1 + x_b1)
 
 plt.subplot(221)
