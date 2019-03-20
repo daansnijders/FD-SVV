@@ -4,6 +4,8 @@ from math import *
 from FD_CLCD import e, CD0, CLa, CL, CD #For Stationary Part
 from flight_data import time_d, V_tas_d, V_cas_d, roll_angle_d, pitch_angle_d, body_roll_rate_d, body_pitch_rate_d, body_yaw_rate_d, hp_d, m_d #For stationary meas during dynamic part
 
+motion_names = ["Zeros as input", "Aperiodic Roll", "Short Period", "Phugoid", "Dutch Roll", "Dutch Roll with Yaw Damper", "Spiral"]
+
 print()
 print("What motion are you working on?")
 print("0) Results in errors")
@@ -16,6 +18,7 @@ print("6) Spiral")
 print()
 
 i = int(input("i =  "))
+print("Chosen: ", motion_names[i])
 
 # ==========================CHOOSE WHICH MOTION===================================================
 # i = 0 #Check code, result is zer
@@ -26,8 +29,6 @@ i = int(input("i =  "))
 # i = 5 #Dutch Roll with Yaw Damper 
 # i = 6 #Spiral 
 # =============================================================================
-
-print(i)
 
 
 """ÏNPUTS FROM THE FLIGHT DATA:"""
