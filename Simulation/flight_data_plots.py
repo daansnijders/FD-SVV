@@ -102,19 +102,19 @@ x_change3 = (-x_f3 + x_b3)
 delta_a_input_dutch = (delta_a_d1[lst_element[3]+x_f3*10:lst_element[3]+time_dutch*10+x_b3*10])
 delta_r_input_dutch = (delta_r_d1[lst_element[3]+x_f3*10:lst_element[3]+time_dutch*10+x_b3*10])
 
-#plt.subplot(221)
+#plt.subplot(222)
 #plt.plot(np.arange(0,time_dutch+x_change3,0.1), roll_angle_d1[lst_element[3]+x_f3*10:lst_element[3]+time_dutch*10+x_b3*10])
 #plt.xlabel('Time [s]')
 #plt.ylabel(r'$\phi$ [rad]')
 #plt.grid()
 #
-#plt.subplot(222)
+#plt.subplot(223)
 #plt.plot(np.arange(0,time_dutch+x_change3,0.1), body_roll_rate_d1[lst_element[3]+x_f3*10:lst_element[3]+time_dutch*10+x_b3*10])
 #plt.xlabel('Time [s]')
 #plt.ylabel('p [rad/s]')
 #plt.grid()
 #
-#plt.subplot(223)
+#plt.subplot(224)
 #plt.plot(np.arange(0,time_dutch+x_change3,0.1), body_yaw_rate_d1[lst_element[3]+x_f3*10:lst_element[3]+time_dutch*10+x_b3*10])
 #plt.xlabel('Time [s]')
 #plt.ylabel('r [rad/s]')
@@ -130,20 +130,55 @@ x_change4 = (-x_f4 + x_b4)
 delta_a_input_dutch_yaw = (delta_a_d1[lst_element[3]+x_f4*10:lst_element[3]+time_dutch_yaw*10+x_b4*10])
 delta_r_input_dutch_yaw = (delta_r_d1[lst_element[3]+x_f4*10:lst_element[3]+time_dutch_yaw*10+x_b4*10])
 
-#plt.subplot(221)
+#plt.subplot(222)
 #plt.plot(np.arange(0,time_dutch_yaw+x_change4,0.1), roll_angle_d1[lst_element[4]+x_f4*10:lst_element[4]+time_dutch_yaw*10+x_b4*10])
 #plt.xlabel('Time [s]')
 #plt.ylabel(r'$\phi$ [rad]')
 #plt.grid()
 #
-#plt.subplot(222)
+#plt.subplot(223)
 #plt.plot(np.arange(0,time_dutch_yaw+x_change4,0.1), body_roll_rate_d1[lst_element[4]+x_f4*10:lst_element[4]+time_dutch_yaw*10+x_b4*10])
 #plt.xlabel('Time [s]')
 #plt.ylabel('p [rad/s]')
 #plt.grid()
 #
-#plt.subplot(223)
+#plt.subplot(224)
 #plt.plot(np.arange(0,time_dutch_yaw+x_change4,0.1), body_yaw_rate_d1[lst_element[4]+x_f4*10:lst_element[4]+time_dutch_yaw*10+x_b4*10])
 #plt.xlabel('Time [s]')
 #plt.ylabel('r [rad/s]')
 #plt.grid()
+
+"*** A-Periodic Roll Motion ***"
+time_aperiodic = 12
+x_f5 = 0
+x_b5 = 0
+x_change5 = (-x_f5 + x_b5)
+
+delta_a_input_aperiodic = (delta_a_d1[lst_element[0]+x_f5*10:lst_element[0]+time_aperiodic*10+x_b5*10])
+delta_r_input_aperiodic = (delta_r_d1[lst_element[0]+x_f5*10:lst_element[0]+time_aperiodic*10+x_b5*10])
+
+#plt.subplot(222)
+#plt.plot(np.arange(0,time_aperiodic+x_change5,0.1), roll_angle_d1[lst_element[0]+x_f5*10:lst_element[0]+time_aperiodic*10+x_b5*10])
+#plt.xlabel('Time [s]')
+#plt.ylabel(r'$\phi$ [rad]')
+#plt.grid()
+#
+#plt.subplot(223)
+#plt.plot(np.arange(0,time_aperiodic+x_change5,0.1), body_roll_rate_d1[lst_element[0]+x_f5*10:lst_element[0]+time_aperiodic*10+x_b5*10])
+#plt.xlabel('Time [s]')
+#plt.ylabel('p [rad/s]')
+#plt.grid()
+#
+#plt.subplot(224)
+#plt.plot(np.arange(0,time_aperiodic+x_change5,0.1), body_yaw_rate_d1[lst_element[0]+x_f5*10:lst_element[0]+time_aperiodic*10+x_b5*10])
+#plt.xlabel('Time [s]')
+#plt.ylabel('r [rad/s]')
+#plt.grid()
+
+
+
+
+
+
+
+
