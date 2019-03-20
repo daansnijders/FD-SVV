@@ -95,22 +95,25 @@ x_f3 = 0
 x_b3 = 0
 x_change3 = (-x_f3 + x_b3)
 
-plt.subplot(221)
-plt.plot(np.arange(0,time_short+x_change3,0.1), roll_angle_d1[lst_element[4]+x_f3*10:lst_element[4]+time_short*10+x_b3*10])
-plt.xlabel('Time [s]')
-plt.ylabel(r'$\phi$ [rad]')
-plt.grid()
+#plt.subplot(221)
+#plt.plot(np.arange(0,time_short+x_change3,0.1), roll_angle_d1[lst_element[4]+x_f3*10:lst_element[4]+time_short*10+x_b3*10])
+#plt.xlabel('Time [s]')
+#plt.ylabel(r'$\phi$ [rad]')
+#plt.grid()
+#
+#plt.subplot(222)
+#plt.plot(np.arange(0,time_short+x_change3,0.1), body_roll_rate_d1[lst_element[4]+x_f3*10:lst_element[4]+time_short*10+x_b3*10])
+#plt.xlabel('Time [s]')
+#plt.ylabel('p [rad/s]')
+#plt.grid()
+#
+#plt.subplot(223)
+#plt.plot(np.arange(0,time_short+x_change3,0.1), body_yaw_rate_d1[lst_element[4]+x_f3*10:lst_element[4]+time_short*10+x_b3*10])
+#plt.xlabel('Time [s]')
+#plt.ylabel('r [rad/s]')
+#plt.grid()
 
-plt.subplot(222)
-plt.plot(np.arange(0,time_short+x_change3,0.1), body_roll_rate_d1[lst_element[4]+x_f3*10:lst_element[4]+time_short*10+x_b3*10])
-plt.xlabel('Time [s]')
-plt.ylabel('p [rad/s]')
-plt.grid()
+#delta_a_input_dutch = (delta_a_d1[lst_element[4]+x_f3*10:lst_element[4]+time_dutch*10+x_b3*10])
+#delta_r_input_dutch = (delta_r_d1[lst_element[4]+x_f3*10:lst_element[4]+time_dutch*10+x_b3*10])
 
-plt.subplot(223)
-plt.plot(np.arange(0,time_short+x_change3,0.1), body_yaw_rate_d1[lst_element[4]+x_f3*10:lst_element[4]+time_short*10+x_b3*10])
-plt.xlabel('Time [s]')
-plt.ylabel('r [rad/s]')
-plt.grid()
-
-
+"*** 
