@@ -47,9 +47,9 @@ u = np.zeros((len(t),2))
 for i in range (10):
     u[i,1] = 0.025
     u[i,0] = 0.
-u = np.column_stack((delta_a_input_aperiodic, delta_r_input_aperiodic))
+u = np.column_stack((delta_a_input_dutch, delta_r_input_dutch))
 z,x,c = ml.lsim(sys_asym2, u, t)
-X0 = np.array([[0],[roll_angle_d1[lst_element[0]]],[body_roll_rate_d1[lst_element[0]]],[body_yaw_rate_d1[lst_element[0]]]])
+X0 = np.array([[0],[roll_angle_d1[lst_element[3]]],[body_roll_rate_d1[lst_element[3]]],[body_yaw_rate_d1[lst_element[3]]]])
 z =  z*-1
 #yout, T = ml.impulse(sys_sym2)
 
@@ -79,4 +79,4 @@ plt.legend()
 
 
 plt.show()
-plt.savefig('asym-aperiodic.png')
+plt.savefig('asym-dutch.png')

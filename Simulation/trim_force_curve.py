@@ -34,7 +34,7 @@ de = [-0.4, -0.9, -1.4, -2.0, -0.1, 0.2, 0.5, -0.5, -1.1]   #deg
 de = np.array(de)*(pi/180.)                                 #rad
 detr = [2, 2, 2, 2, 2, 2, 1.8, 1.8]                         #deg
 detr = np.array(detr)*(pi/180.)                             #rad
-Fe = [0, -16, -29, -41, -19, 40, 51, 0, -25]                #N
+Fe = [0, -16, -29, -41, 19, 40, 51, 0, -25]                #N
 FFl = [412, 409, 406, 402, 416, 424, 433, 422, 422]         #lbs/hr
 FFl = np.array(FFl)*0.45359237                              #kg/hr
 FFr = [446, 443, 440, 433, 452, 460, 468, 458, 458]         #lbs/hr
@@ -127,7 +127,7 @@ for i in range(len(T_c)):
 
 
 '*** Elevator Trim Curve Plot ***'
-z_function = np.polyfit(sorted(Ve_r[:7]), sorted(delta_e_eq), 1)
+z_function = np.polyfit(sorted(Ve_r[:7]), sorted(delta_e_eq), 2)
 function = np.poly1d(z_function)
 
 #plt.plot(sorted(Ve_r[:7]), function(sorted(Ve_r[:7])), label='M = [0.23 - 0.32], Re = [8200000 - 12100000]')
@@ -136,8 +136,8 @@ function = np.poly1d(z_function)
 #plt.title('Clean cruise (flaps up, gear up)')
 #plt.gca().invert_yaxis()
 #plt.grid()
-#plt.xlabel('Ve [m/s]')
-#plt.ylabel('de [rad]')
+#plt.xlabel(r'$\tilde{V_e}$ [m/s]')
+#plt.ylabel(r'$\tilde{\delta_{e_{eq}}^{*}}$ [rad]')
 
 '*** Elevator vs AoA ***'
 alpha_rad = np.array(alpha)*(pi/180)
@@ -161,14 +161,14 @@ Cm_a = (function1[1]*-Cm_d)
 z_function2 = np.polyfit(sorted(Ve_r[:7]), sorted(Fe_r[:7]), 2)
 function2 = np.poly1d(z_function2)
 
-#plt.plot(sorted(Ve_r[:7]), function2(sorted(Ve_r[:7])), label='M = [0.23 - 0.32], Re = [8200000 - 12100000]')
-#plt.plot(Ve_r[:7], Fe_r[:7],'x')
-#plt.legend()
-#plt.title('Clean cruise (flaps up, gear up)')
-#plt.gca().invert_yaxis()
-#plt.grid()
-#plt.xlabel('Ve [m/s]')
-#plt.ylabel('Fe [N]')
+plt.plot(sorted(Ve_r[:7]), function2(sorted(Ve_r[:7])), label='M = [0.23 - 0.32], Re = [8200000 - 12100000]')
+plt.plot(Ve_r[:7], Fe_r[:7],'x')
+plt.legend()
+plt.title('Clean cruise (flaps up, gear up)')
+plt.gca().invert_yaxis()
+plt.grid()
+plt.xlabel(r'$\tilde{V_e}$ [m/s]')
+plt.ylabel(r'$F_{e}^{*}$ [N]')
 
 '*** Output Cm_a and Cm_d *** '
-print (Cm_a), print (Cm_d)
+#print (Cm_a), print (Cm_d)

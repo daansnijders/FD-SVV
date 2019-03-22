@@ -2,21 +2,34 @@
 from math import *
 # xcg = 0.25 * c
 from FD_CLCD import e, CD0, CLa, CL, CD #For Stationary Part
-from flight_data import time_d, V_tas_d, V_cas_d, roll_angle_d, pitch_angle_d, body_roll_rate_d, body_pitch_rate_d, body_yaw_rate_d, hp_d, m_d #For stationary meas during dynamic part
+from flight_data import time_d, V_tas_d, V_cas_d, roll_angle_d, pitch_angle_d, body_roll_rate_d, body_pitch_rate_d, body_yaw_rate_d, hp_d, m_d, CL_d, CD_d #For stationary meas during dynamic part
 
+motion_names = ["Zeros as input", "Aperiodic Roll", "Short Period", "Phugoid", "Dutch Roll", "Dutch Roll with Yaw Damper", "Spiral"]
 
+print()
+print("What motion are you working on?")
+print("0) Results in errors")
+print("1) Aperiodic Roll")
+print("2) Short Period")
+print("3) Phugoid (Long Period)")
+print("4) Dutch Roll")
+print("5) Dutch Roll With Yaw Damper")
+print("6) Spiral")
+print()
 
-
+i = int(input("i =  "))
+print("Chosen: ", motion_names[i])
 
 # ==========================CHOOSE WHICH MOTION===================================================
-#i = 0 #Check code, result is zer
-i = 1 #Aperiodic Roll
+# i = 0 #Check code, result is zer
+# i = 1 #Aperiodic Roll
 # i = 2 #Short Period 
 # i = 3 #Phugoid 
 # i = 4 #Dutch Roll 
 # i = 5 #Dutch Roll with Yaw Damper 
 # i = 6 #Spiral 
 # =============================================================================
+
 
 """ÏNPUTS FROM THE FLIGHT DATA:"""
 
@@ -86,8 +99,8 @@ depsda = 4 / (A + 2)            # Downwash gradient [ ]
 
 # Lift and drag coefficient
 
-CL =  CL[i]       # Lift coefficient [ ]
-CD =  CD[i]       # Drag coefficient [ ]
+CL =  CL_d[i]       # Lift coefficient [ ]
+CD =  CD_d[i]       # Drag coefficient [ ]
 
 #--------------------------------------------------------
 

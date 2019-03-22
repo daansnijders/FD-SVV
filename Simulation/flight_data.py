@@ -220,5 +220,5 @@ for i in lst_element:
     rho_d.append(rho_d1[i])                                     #kg/m^3
 
 for i in range(1, len(thrust_d), 1):
-    CL_d.append((m_d[i]*g0)/(0.5*rho_d[i]*V_tas_d[i]**2*S))
+    CL_d.append((m_d[i]*g0)/(0.5*rho_d[i]*(V_tas_d[i]**2)*S))
     CD_d.append((thrust_d[i])/(0.5*rho_d[i]*V_tas_d[i]**2*S))

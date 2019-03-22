@@ -6,6 +6,7 @@ import control.matlab as ml
 import matplotlib.pyplot as plt
 #from FD_CLCD import *
 from scipy import signal
+from flight_data_plots import *
 
 """Symmetric equations of motion to state space form"""
 
@@ -28,7 +29,7 @@ from scipy import signal
 
 
 
-C1_sym = np.array([[-2*muc*c/V/V0, 0, 0, 0], 
+C1_sym = np.array([[-2*muc*c/V0/V0, 0, 0, 0], 
                    [0, (CZadot-2*muc)*c/V0, 0, 0], 
                    [0, 0, -c/V0, 0], 
                    [0, Cmadot*c/V0, 0, -2*muc*KY2*c*c/V0/V0]])
@@ -46,26 +47,29 @@ sys_sym2 = ml.ss(A_sym, B_sym, C_sym, D_sym)
 eig = np.linalg.eig(A_sym)
 #print (sys_sym)
 
-
-t = np.linspace(0., 150, 150)
+t = np.linspace(0., 15, 150)
 u = np.zeros(len(t))
 for i in range (20):
     u[i] = -0.006
-z,x,c = ml.lsim(sys_sym2, u, t)
+
+"""Initial conditions"""
+X0_phugoid = np.array([[V_tas_d1[lst_element[2]]],[AoA_d1[lst_element[2]]],[pitch_angle_d1[lst_element[2]]],[body_pitch_rate_d1[lst_element[2]]]])
+z,x,c = ml.lsim(sys_sym2, delta_e_input_short, t)
+
 
 #yout, T = ml.impulse(sys_sym2)
 
 plt.subplot(2, 2, 1)
 plt.plot(t, (z[:,0] + V0))
 plt.xlabel('Time [sec]')
-plt.ylabel('Velocity')
+plt.ylabel('Velocity V_tas')
 
-plt.subplot(2, 2, 2)
-plt.plot(t, (z[:,1]))
+plt.subplot(2, 2, 3)
+plt.plot(t, (z[:,1]+ X0_phugoid[1]-0.015))
 plt.xlabel('Time [sec]')
 plt.ylabel('Angle of Attack [rad]')
 
-plt.subplot(2, 2, 3)
+plt.subplot(2, 2, 2)
 plt.plot(t, (z[:,2]))
 plt.xlabel('Time [sec]')
 plt.ylabel('Theta [rad]')
