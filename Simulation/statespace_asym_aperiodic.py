@@ -42,7 +42,7 @@ sys_asym = signal.StateSpace(A_asym, B_asym, C_asym, D_asym)
 sys_asym2 = ml.ss(A_asym, B_asym, C_asym, D_asym)
 #print (sys_asym)
 
-t = np.linspace(0., 12, 120)
+t = np.linspace(0., 7, 70)
 u = np.zeros((len(t),2))
 for i in range (10):
     u[i,1] = 0.025
