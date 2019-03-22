@@ -38,7 +38,7 @@ C_asym = np.array([[1,0,0,0], [0,1,0,0], [0,0,1,0], [0,0,0,1]])
 D_asym = np.array([[0,0],[0,0],[0,0],[0,0]])
 
 sys_asym = signal.StateSpace(A_asym, B_asym, C_asym, D_asym)
-
+eig = np.linalg.eig(A_asym)
 sys_asym2 = ml.ss(A_asym, B_asym, C_asym, D_asym)
 #print (sys_asym)
 
