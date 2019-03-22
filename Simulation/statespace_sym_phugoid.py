@@ -47,14 +47,14 @@ sys_sym2 = ml.ss(A_sym, B_sym, C_sym, D_sym)
 eig = np.linalg.eig(A_sym)
 #print (sys_sym)
 
-t = np.linspace(0., 15, 150)
+t = np.linspace(0., 170, 1700)
 u = np.zeros(len(t))
 for i in range (20):
     u[i] = -0.006
 
 """Initial conditions"""
 X0_phugoid = np.array([[V_tas_d1[lst_element[2]]],[AoA_d1[lst_element[2]]],[pitch_angle_d1[lst_element[2]]],[body_pitch_rate_d1[lst_element[2]]]])
-z,x,c = ml.lsim(sys_sym2, delta_e_input_short, t)
+z,x,c = ml.lsim(sys_sym2, delta_e_input_phugoid, t)
 
 
 #yout, T = ml.impulse(sys_sym2)
@@ -66,24 +66,24 @@ plt.ylabel('Velocity V_tas')
 plt.legend()
 
 plt.subplot(2, 2, 3)
-plt.plot(t, (z[:,1]+ X0_phugoid[1]-0.015), label='Numerical model')
+plt.plot(t, (z[:,1]+ X0_phugoid[1] - 0.015), label='Numerical model')
 plt.xlabel('Time [sec]')
 plt.ylabel('Angle of Attack [rad]')
 plt.legend()
 
 plt.subplot(2, 2, 2)
-plt.plot(t, (z[:,2]), label='Numerical model')
+plt.plot(t, (z[:,2]+ X0_phugoid[2]), label='Numerical model')
 plt.xlabel('Time [sec]')
 plt.ylabel('Theta [rad]')
 plt.legend()
 
 plt.subplot(2, 2, 4)
-plt.plot(t, (z[:,3]), label='Numerical model')
+plt.plot(t, (z[:,3]+ X0_phugoid[3]), label='Numerical model')
 plt.xlabel('Time [sec]')
 plt.ylabel('q [rad/sec]')
 plt.legend()
 
 
 plt.show()
-plt.savefig('sym_short.png')
+plt.savefig('sym-phugoid.png')
 
