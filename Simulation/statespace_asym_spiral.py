@@ -49,8 +49,8 @@ for i in range (10):
     u[i,0] = 0.
 u = np.column_stack((delta_a_input_spiral, delta_r_input_spiral))
 z,x,c = ml.lsim(sys_asym2, u, t)
-#X0 = np.array([[0],[roll_angle_d1[lst_element[5]]],[body_roll_rate_d1[lst_element[5]]],[body_yaw_rate_d1[lst_element[5]]]])
-X0 = np.array([[0],[0],[0],[0]])
+X0 = np.array([[0],[roll_angle_d1[lst_element[5]]],[body_roll_rate_d1[lst_element[5]]],[body_yaw_rate_d1[lst_element[5]]]])
+#X0 = np.array([[0],[0],[0],[0]])
 z =  z*-1
 #yout, T = ml.impulse(sys_sym2)
 
