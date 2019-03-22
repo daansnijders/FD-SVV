@@ -28,7 +28,6 @@ from flight_data_plots import *
 #x_bardot_sym = np.array([[u_dot], [alpha_dot], [theta_dot], [q_dot]])
 
 
-
 C1_sym = np.array([[-2*muc*c/V0/V0, 0, 0, 0], 
                    [0, (CZadot-2*muc)*c/V0, 0, 0], 
                    [0, 0, -c/V0, 0], 
@@ -54,7 +53,7 @@ for i in range (20):
 
 """Initial conditions"""
 X0_phugoid = np.array([[V_tas_d1[lst_element[2]]],[AoA_d1[lst_element[2]]],[pitch_angle_d1[lst_element[2]]],[body_pitch_rate_d1[lst_element[2]]]])
-z,x,c = ml.lsim(sys_sym2, delta_e_input_phugoid, t)
+z,x,d = ml.lsim(sys_sym2, delta_e_input_phugoid, t)
 
 
 #yout, T = ml.impulse(sys_sym2)
@@ -62,23 +61,23 @@ z,x,c = ml.lsim(sys_sym2, delta_e_input_phugoid, t)
 plt.subplot(2, 2, 1)
 plt.plot(t, (z[:,0] + V0), label='Numerical model')
 plt.xlabel('Time [sec]')
-plt.ylabel('Velocity V_tas')
+plt.ylabel('V [m/s]')
 plt.legend()
 
 plt.subplot(2, 2, 3)
 plt.plot(t, (z[:,1]+ X0_phugoid[1] - 0.015), label='Numerical model')
 plt.xlabel('Time [sec]')
-plt.ylabel('Angle of Attack [rad]')
+plt.ylabel(r'$\alpha$ [rad]')
 plt.legend()
 
 plt.subplot(2, 2, 2)
 plt.plot(t, (z[:,2]+ X0_phugoid[2]), label='Numerical model')
 plt.xlabel('Time [sec]')
-plt.ylabel('Theta [rad]')
+plt.ylabel(r'$\theta$ [rad]')
 plt.legend()
 
 plt.subplot(2, 2, 4)
-plt.plot(t, (z[:,3]+ X0_phugoid[3]), label='Numerical model')
+plt.plot(t, (z[:,3]), label='Numerical model')
 plt.xlabel('Time [sec]')
 plt.ylabel('q [rad/sec]')
 plt.legend()
