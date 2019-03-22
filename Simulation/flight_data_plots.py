@@ -169,7 +169,7 @@ if i == 5:
     plt.legend()
 
 "*** A-Periodic Roll Motion ***"
-time_aperiodic = 12
+time_aperiodic = 7
 x_f5 = 0
 x_b5 = 0
 x_change5 = (-x_f5 + x_b5)
