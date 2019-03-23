@@ -78,7 +78,7 @@ plt.ylabel(r'$\theta$ [rad]')
 plt.legend()
 
 plt.subplot(2, 2, 4)
-plt.plot(t, (z[:,3]+ X0_short[3]), label='Numerical model')
+plt.plot(t, (z[:,3]), label='Numerical model')
 plt.xlabel('Time [s]')
 plt.ylabel('q [rad/sec]')
 plt.legend()
