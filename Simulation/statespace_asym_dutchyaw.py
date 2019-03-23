@@ -55,13 +55,13 @@ z =  z*-1
 
 plt.subplot(2, 2, 1)
 plt.plot(t, (z[:,0]), label='Numerical model')
-plt.xlabel('Time [sec]')
+plt.xlabel('Time [s]')
 plt.ylabel(r'$\beta$ [rad]')
 plt.legend()
 
 plt.subplot(2, 2, 2)
 plt.plot(t, (z[:,1]+X0[1]), label='Numerical model')
-plt.xlabel('Time [sec]')
+plt.xlabel('Time [s]')
 plt.ylabel(r'$\varphi$ [rad]')
 plt.legend()
 
