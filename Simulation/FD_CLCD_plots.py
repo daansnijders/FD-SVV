@@ -39,8 +39,9 @@ CD_new = []
 
 for c in range(len((CL_new))):
     CD_new.append(CD0 + (CL_new[c]**2)/(pi*A*e))
-#    
-#plt.plot(CD_new, CL_new, '^', markersize=2.0)
+    
+#plt.plot(CD_new, CL_new, '^', markersize=2.0, label="M = [0.20 - 0.44], Re = [7000000 - 16000000]" )
+#plt.legend()
 #plt.xlabel('CD [-]')
 #plt.ylabel('CL [-]')
 
