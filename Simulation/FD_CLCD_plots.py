@@ -3,17 +3,19 @@ from FD_CLCD import *
 '*** CL-Alpha Plot ***'
 #z = np.polyfit(alpha, CL, 1)
 #p1 = np.poly1d(z)
-#plt.plot(alpha, p1(alpha),"b--")
+#plt.plot(alpha, p1(alpha),"b--", label="M = [0.20 - 0.44], Re = [7000000 - 16000000]")
 #plt.plot(alpha, CL, 'x')
-#plt.xlabel('alpha [deg]')
+#plt.legend()
+#plt.xlabel(r'$\alpha$ [$\degree$]')
 #plt.ylabel('CL [-]')
 
 '*** CD-Alpha Plot ***'
 #z = np.polyfit(alpha, CD, 2)
 #p1 = np.poly1d(z)
-#plt.plot(alpha, p1(alpha),"b--") 
+#plt.plot(alpha, p1(alpha),"b--", label="M = [0.20 - 0.44], Re = [7000000 - 16000000]") 
 #plt.plot(alpha, CD, 'x')
-#plt.xlabel('alpha [deg]')
+#plt.legend()
+#plt.xlabel(r'$\alpha$ [$\degree$]')
 #plt.ylabel('CD [-]')
 #plt.show()
 
@@ -37,9 +39,9 @@ CD_new = []
 
 for c in range(len((CL_new))):
     CD_new.append(CD0 + (CL_new[c]**2)/(pi*A*e))
-    
-plt.plot(CD_new, CL_new, '^', markersize=2.0)
-plt.xlabel('CD [-]')
-plt.ylabel('CL [-]')
+#    
+#plt.plot(CD_new, CL_new, '^', markersize=2.0)
+#plt.xlabel('CD [-]')
+#plt.ylabel('CL [-]')
 
 
